@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    
+    <main>
+        <section id = "city-wrapper">
+            <form>
+                <div class="input-group mb-3">
+                    <input type="text" id="city-input" class="form-control" placeholder="City" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append" id = "city-submit">
+                      <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
+                    </div>
+                </div>
+                <div id = "city-history-wrapper">
+                    <ul id = "city-history">
+                        city list
+                    </ul>
+                </div>
+            </form>
+        </section>
+
+        <section id = "weather-wrapper">
+            <div id = "todays-weather">
+                <ul id = "todays-weather-data">
+                    <li id = "city-date">city-date</li>
+                    <li id = "todays-temp">Temp</li>
+                    <li id = "todays-humidity">Humidity</li>
+                    <li id = "todays-wind">Wind</li>
+                    <li id = "todays-uv">UV</li>
+                </ul>
+            </div>
+
+            <div id = "grid-container">
+                <div id = "day2-wrapper">
+                    <ul id = "day2">
+                        <li id = "day2-date"></li>
+                        <li id = "day2-icon"></li>
+                        <li id = "day2-temp"></li>
+                        <li id = "day2-humidity"></li>
+                    </ul>
+                </div>
+                <div id = "day3-wrapper">
+                    <ul id = "day3">
+                        <li id = "day3-date"></li>
+                        <li id = "day3-icon"></li>
+                        <li id = "day3-temp"></li>
+                        <li id = "day3-humidity"></li>
+                    </ul>
+                </div>
+                <div id = "day4-wrapper">
+                    <ul id = "day4">
+                        <li id = "day4-date"></li>
+                        <li id = "day4-icon"></li>
+                        <li id = "day4-temp"></li>
+                        <li id = "day4-humidity"></li>
+                    </ul>
+                </div>
+                <div id = "day5-wrapper">
+                    <ul id = "day5">
+                        <li id = "day5-date"></li>
+                        <li id = "day5-icon"></li>
+                        <li id = "day5-temp"></li>
+                        <li id = "day5-humidity"></li>
+                    </ul>
+                </div>
+                <div id = "day6-wrapper">
+                    <ul id = "day6">
+                        <li id = "day6-date"></li>
+                        <li id = "day6-icon"></li>
+                        <li id = "day6-temp"></li>
+                        <li id = "day6-humidity"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
