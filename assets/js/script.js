@@ -4,9 +4,10 @@ var inputButtonEl = document.querySelector("#button-addon2");
 
 
 var cityNameSearch = function(city) {
-    var weatherApi = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + ",&appid=188f221ff04011df267287eed52e6cf0";
+    var weatherApi = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=188f221ff04011df267287eed52e6cf0";
     fetch(weatherApi).then(function(response) {
         if (response.ok) {
+            //debugger;
             response.json().then(function(data) {
                 console.log(data);
                 displayDailyWeather(data, city)
@@ -16,7 +17,7 @@ var cityNameSearch = function(city) {
 }
 
 var citySubmitHandler = function(event) {
-    //debugger;
+    debugger;
     var cityName = cityEl.value.trim();
     if (cityName) {
         cityNameSearch(cityName);
