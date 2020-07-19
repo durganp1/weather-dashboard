@@ -13,21 +13,14 @@
     </header>
     
     <main>
-        <section id = "city-wrapper">
-            <form>
-                <div class="input-group mb-3">
-                    <input type="text" id="city-input" class="form-control" placeholder="City" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append" id = "city-submit">
-                      <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
-                    </div>
-                </div>
-                <div id = "city-history-wrapper">
-                    <ul id = "city-history">
-                        city list
-                    </ul>
-                </div>
-            </form>
-        </section>
+        <div class="col-12 col-md-4">
+            <div class="card">
+              <h3 class="card-header text-uppercase">Search By City</h3>
+              <form id="city-submit" class="card-body">
+                <input name="city-input" id="city-input" type="text" autofocus="true" class="form-input" />
+                <button type="submit" class="btn">Get Weather</button>
+              </form>
+            </div>
 
         <section id = "weather-wrapper">
             <div id = "todays-weather">
