@@ -2,6 +2,17 @@ var cityInputEl = document.querySelector("#city-submit");
 var cityEl = document.querySelector("#city-input");
 var inputButtonEl = document.querySelector("#button-addon2");
 var todayWeatherWrapperEl = document.querySelector("#weather-wrapper");
+var weatherForecastEl = document.querySelector("#forecast-container");
+var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 
 var cityNameSearch = function(city) {
@@ -47,7 +58,9 @@ var citySubmitHandler = function(event) {
     var cityName = cityEl.value.trim();
     if (cityName) {
         cityNameSearch(cityName);
-        cityEl.value = "";
+        //selectCityEl(cityName);
+        //console.log(cityName);
+        //cityEl.value = "";
     }
     else {
         alert("Please enter a city name.");
@@ -57,17 +70,42 @@ var citySubmitHandler = function(event) {
 cityInputEl.addEventListener("submit", citySubmitHandler);
 
 var displayWeatherEl = function(data) {
-    
+    //debugger;
     var cityDate = document.getElementById("city-date");
-        cityDate.textContent = data.;
+        cityDate.textContent = capitalizeFirstLetter(cityEl.value.trim()) + " - " + today;
     var todaysTemp = document.getElementById("todays-temp");
-        todaysTemp.textContent = "Temperature " + data.current.temp;
+        todaysTemp.textContent = "Temperature " + " - " + data.current.temp;
     var todaysHumidity = document.getElementById("todays-humidity");
-        todaysHumidity.textContent = "Humidity " + data.current.humidity;
+        todaysHumidity.textContent = "Humidity " + " - " + data.current.humidity;
     var todaysWind = document.getElementById("todays-wind");
-        todaysWind.textContent = "Wind Speed " + data.current.wind_speed;
+        todaysWind.textContent = "Wind Speed " + " - " + data.current.wind_speed;
     var todaysUv = document.getElementById("todays-uv");
-        todaysUv.textContent = "UV Index " + data.current.uvi;
+        todaysUv.textContent = "UV Index " + " - " + data.current.uvi;
+        for (i=0; i<4; i++) {
+            debugger;
+            //if (data.daily[i]<4) {
+                // var date = today;
+                //     date.setDate(date.getDate(today) + 1)
+                today.setDate(today.getDate() + 1);
+                console.log(today);
+                var forecastDate = document.createElement("div");
+                    forecastDate.textContent = date;
+                    console.log(forecastDate);
+                var forecastIcon = data.daily[i].weather[0].icon;
+                var iconUrl = "http://openweathermap.org/img/wn/" + forecastIcon + ".png";
+                    $(".icon").html("<img src = '" + iconUrl + "'>");
+                var forecastTemp = document.createElement("div");
+                    forecastTemp.textContent = "Temperature " + " - " + data.daily[i].temp.max;
+                var forecastUv = document.createElement("div");
+                    forecastUv.textContent = "UV Index " + " - " + data.daily[i].uvi;
+             
+                forecastTemp.appendChild(forecastUv);
+                forecastIcon.appendChild(forecastTemp);
+                forecastDate.appendChild(forecastIcon);
+                weatherForecastEl.appendChild(forecastDate);
+            //} 
+            
+        }
     
     
     
