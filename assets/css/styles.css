@@ -3,3 +3,30 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.page-wrapper {
+    display: flex;
+
+
+}
+
+.input-div {
+    display: flex;
+    width: 100%;
+    
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.weather-wrapper {
+    display: flex;
+}
+
+.todays-weather {
+    width: 100%;
+}
