@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -15,66 +17,33 @@
     <main class = "page-wrapper">
         <div class="col-12 col-md-4 input-div">
             <div class="card">
-              <h3 class="card-header text-uppercase">Search By City</h3>
+              <h3 class="card-header">Search for a City:</h3>
               <form id="city-submit" class="card-body">
                 <input name="city-input" id="city-input" type="text" autofocus="true" class="form-input" />
-                <button type="submit" class="btn">Get Weather</button>
+                <button type="submit" class="btn"><span class="oi oi-magnifying-glass"></span></button>
               </form>
             </div>
-
+        </div>
         <section id = "weather-wrapper">
             <div id = "todays-weather">
                 <ul id = "todays-weather-data">
                     <li id = "city-date"></li>
+                    <li id = "icon"><img id = "wicon" src = ""></li>
                     <li id = "todays-temp"></li>
                     <li id = "todays-humidity"></li>
                     <li id = "todays-wind"></li>
                     <li id = "todays-uv"></li>
+                    <li id = "uvi"></li>
                 </ul>
             </div>
 
-            <div id = "forecast-container">
-                <h3>5-Day Forecast</h3>
-                <div id = "icon"><img id = "wicon" src = "" alt = "Weather icon"></div>
-                    <ul id = "day2">
-                        <li id = "day2-date"></li>
-                        <li id = "day2-icon"></li>
-                        <li id = "day2-temp"></li>
-                        <li id = "day2-humidity"></li>
-                    </ul>
+            <h3 id = "forecast-title"></h3>
+
+            <div id = "forecast-wrapper">
+                <div id = "forecast-container">
+                    <div id = "icon"><img id = "forecast-icon" src = ""></div>
                 </div>
-                <div id = "day3-wrapper">
-                    <ul id = "day3">
-                        <li id = "day3-date"></li>
-                        <li id = "day3-icon"></li>
-                        <li id = "day3-temp"></li>
-                        <li id = "day3-humidity"></li>
-                    </ul>
-                </div>
-                <div id = "day4-wrapper">
-                    <ul id = "day4">
-                        <li id = "day4-date"></li>
-                        <li id = "day4-icon"></li>
-                        <li id = "day4-temp"></li>
-                        <li id = "day4-humidity"></li>
-                    </ul>
-                </div>
-                <div id = "day5-wrapper">
-                    <ul id = "day5">
-                        <li id = "day5-date"></li>
-                        <li id = "day5-icon"></li>
-                        <li id = "day5-temp"></li>
-                        <li id = "day5-humidity"></li>
-                    </ul>
-                </div>
-                <div id = "day6-wrapper">
-                    <ul id = "day6">
-                        <li id = "day6-date"></li>
-                        <li id = "day6-icon"></li>
-                        <li id = "day6-temp"></li>
-                        <li id = "day6-humidity"></li>
-                    </ul>
-                </div>
+
             </div>
         </section>
     </main>

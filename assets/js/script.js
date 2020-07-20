@@ -72,7 +72,10 @@ cityInputEl.addEventListener("submit", citySubmitHandler);
 var displayWeatherEl = function(data) {
     //debugger;
     var cityDate = document.getElementById("city-date");
-        cityDate.textContent = capitalizeFirstLetter(cityEl.value.trim()) + " - " + today;
+        cityDate.textContent = capitalizeFirstLetter(cityEl.value.trim()) + " (" + today + ")";
+    var iconCode = data.current.weather[0].icon;
+    var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+        $("#wicon").attr("src", iconUrl);
     var todaysTemp = document.getElementById("todays-temp");
         todaysTemp.textContent = "Temperature " + " - " + data.current.temp + "ºF";
     var todaysHumidity = document.getElementById("todays-humidity");
@@ -80,9 +83,16 @@ var displayWeatherEl = function(data) {
     var todaysWind = document.getElementById("todays-wind");
         todaysWind.textContent = "Wind Speed " + " - " + data.current.wind_speed + " MPH";
     var todaysUv = document.getElementById("todays-uv");
-        todaysUv.textContent = "UV Index " + " - " + data.current.uvi;
+    var uvi = document.getElementById("uvi");
+        uvi.textContent = data.current.uvi;
+        uvi.style.backgroundColor = "red";
+        todaysUv.textContent = "UV Index " + " - ";
+    var forecastEl = document.getElementById("forecast-title");
+        forecastEl.classList.add("forecast-title");
+        forecastEl.textContent = "5-Day Forecast:";
+    
         for (i=0; i<=4; i++) {
-            //debugger;
+            
             var date = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
                 date.setDate(date.getDate() + i);
             var dd = String(date.getDate()).padStart(2, '0');
@@ -90,30 +100,34 @@ var displayWeatherEl = function(data) {
             var yyyy = date.getFullYear();
                 date = mm + '/' + dd + '/' + yyyy;  
             var forecastDate = document.createElement("div");
+                forecastDate.classList.add("forecast-days");
                 forecastDate.textContent = date;
-                console.log(forecastDate);
-            var forecastIcon = document.getElementById("#wicon");
-                forecastIcon = data.daily[i].weather[0].icon;
-            var iconUrl = "http://openweathermap.org/img/wn/" + forecastIcon + ".png";
-                forecastIcon.textContent = iconUrl.value
-                console.log(forecastIcon);
+                //debugger;
+            var iconBox = document.createElement("IMG");
+                iconBox.setAttribute("id", "iconBox");
+            var iconCode = data.daily[i].weather[0].icon;
+            var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+                    $("#iconBox").attr("src", iconUrl);
+                
+                
+            
             var forecastTemp = document.createElement("div");
                 forecastTemp.textContent = "Temperature " + " - " + data.daily[i].temp.max + "ºF";
-                console.log(forecastTemp);
+                
             var forecastHumidity = document.createElement("div");
                 forecastHumidity.textContent = "Humidity " + " - " + data.daily[i].humidity + "%";
-                console.log(forecastHumidity);
-             
+                
+                forecastDate.appendChild(iconBox);
                 forecastTemp.appendChild(forecastHumidity);
                 forecastDate.appendChild(forecastTemp);
             
                 weatherForecastEl.appendChild(forecastDate);
-            } 
+            }; 
             
         
     
     
     
     
-}
+};
 

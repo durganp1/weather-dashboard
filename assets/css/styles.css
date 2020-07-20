@@ -4,29 +4,104 @@
     box-sizing: border-box;
 }
 
+h1 {
+    text-align: center;
+    background-color: darkslategrey;
+    color: white;
+}
+
+
 .page-wrapper {
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 
 
 }
 
 .input-div {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .03);
+    border: none;
+    flex: 2;
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.card-header {
+    border: none;
+    font-size: 10px;
+    padding-bottom: 0;
+}
+
+.card-body {
+    padding-top: 10px;
+}
+
+.form-input {
+    padding-bottom: 5px;
+}
+
+.btn {
+    background-color: blue;
+    color: white;
+    padding: 3px 3px;
+}
+
+#weather-wrapper {
+    flex: 3;
+}
+
+#todays-weather {
+    line-height: 3;
+
+}
+
+#todays-weather-data {
+    list-style-type: none;
+}
+
+#city-date {
+    font-size: 30px;
+    font-style: bold;
+    display: inline-block;
+}
+
+#todays-uv {
+    display: inline-block;
+}
+
+#icon {
+    display: inline-block;
+}
+
+#uvi {
+    display: inline-block;
+    line-height: normal;
+    color: white;
+}
+
+
+
+.forecast-title {
+    font-size: 30px;
+    font-style: bold;
+}
+
+#forecast-container {
     display: flex;
-    width: 100%;
-    
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.forecast-days {
+    font-size: 1rem;
+    line-height: 2;
+    padding: 3px;
+    background-color: blue;
+    color: white;
+    margin-bottom: 10px;
 
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.weather-wrapper {
-    display: flex;
-}
-
-.todays-weather {
-    width: 100%;
-}
