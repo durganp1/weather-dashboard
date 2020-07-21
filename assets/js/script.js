@@ -18,9 +18,11 @@ function capitalizeFirstLetter(string) {
 }
 
 var saveCityHistory = function(city) {
+    debugger;
     var cityHistory = document.createElement("li");
         cityHistory.classList.add("todays-weather-data");
         cityHistory.textContent = city;
+        
                 saveCityHistoryEl.appendChild(cityHistory);
                 cityArr.push(city);
                 storeCities();
@@ -30,7 +32,7 @@ var saveCityHistory = function(city) {
 };
 
 var savedCitySearch = function(event) {
-    debugger;
+    
     cityName = event.target.textContent;
     cityNameSearch(cityName);
     
@@ -162,19 +164,22 @@ var storeCities = function() {
 };
 
 var getCityHistory = function() {
-    debugger;
+    if (!cityArr){
+        cityArr = [];
+    }
     cityArr = JSON.parse(localStorage.getItem("cities"));
     
-        replaceHistory();
+        //replaceHistory();
 };
 
-var replaceHistory = function(city) {
-    for (i=0; i<cityArr.length; i++) {
-        var cityHistory = document.createElement("li");
-        cityHistory.classList.add("todays-weather-data");
-        cityHistory.textContent = city;
-        saveCityHistoryEl.appendChild(cityHistory);
-    };
-};
+// var replaceHistory = function(city) {
+//     debugger;
+//     for (i=0; i<cityArr.length; i++) {
+//         var cityHistory = document.createElement("li");
+//         cityHistory.classList.add("todays-weather-data");
+//         cityHistory.textContent = city;
+//         saveCityHistoryEl.appendChild(cityHistory);
+//     };
+// };
 
 getCityHistory();
