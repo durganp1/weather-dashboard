@@ -5,6 +5,7 @@ var todayWeatherWrapperEl = document.querySelector("#weather-wrapper");
 var weatherForecastEl = document.querySelector("#forecast-container");
 var saveCityHistoryEl = document.querySelector("#city-history");
 var cityName = "";
+var cityArr = [];
 var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -17,12 +18,15 @@ function capitalizeFirstLetter(string) {
 }
 
 var saveCityHistory = function(city) {
-    
     var cityHistory = document.createElement("li");
         cityHistory.classList.add("todays-weather-data");
         cityHistory.textContent = city;
-        saveCityHistoryEl.appendChild(cityHistory);
-        cityEl.value = "";
+                saveCityHistoryEl.appendChild(cityHistory);
+                cityArr.push(city);
+                storeCities();
+                cityEl.value = "";  
+            
+        
 };
 
 var savedCitySearch = function(event) {
@@ -43,7 +47,6 @@ var cityNameSearch = function(city) {
          .then(function(response) {
              if (response.ok) {
                  response.json().then(function(data) {
-                    console.log(data, city);
                     var lat = data.coord.lat;
                     var lon = data.coord.lon;
                     cityForecast(data, lat, lon);
@@ -64,7 +67,6 @@ var cityForecast = function(data,lat, lon) {
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
-                    console.log(data);
                     displayWeatherEl(data);
                 });
             } else {
@@ -83,10 +85,6 @@ var citySubmitHandler = function(event) {
         cityName = cityEl.value.trim();
     if (cityName) {
         cityNameSearch(cityName);
-        saveCitys(cityName);
-        //selectCityEl(cityName);
-        //console.log(cityName);
-        
     }
     else {
         alert("Please enter a city name.");
@@ -159,11 +157,24 @@ var displayWeatherEl = function(data) {
             
 };
 
-var saveCitys = function(cityName) {
-
-    localStorage.setItem("city", cityName);
+var storeCities = function() {
+    localStorage.setItem("cities", JSON.stringify(cityArr));
 };
 
-var loadCitys = function() {
-    cities = localStorage.getItem("city");
+var getCityHistory = function() {
+    debugger;
+    cityArr = JSON.parse(localStorage.getItem("cities"));
+    
+        replaceHistory();
 };
+
+var replaceHistory = function(city) {
+    for (i=0; i<cityArr.length; i++) {
+        var cityHistory = document.createElement("li");
+        cityHistory.classList.add("todays-weather-data");
+        cityHistory.textContent = city;
+        saveCityHistoryEl.appendChild(cityHistory);
+    };
+};
+
+getCityHistory();
